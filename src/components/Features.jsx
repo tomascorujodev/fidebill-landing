@@ -47,43 +47,20 @@ export default function Features() {
               </dl>
             </div>
           </div>
-           <img
-            alt="Product screenshot"
-            src="assets/Fidebill_Facturacion.png"
-            width={2432}
-            height={1442}
-            className="w-[48rem] max-w-none rounded-xl ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
-          />{/*
-          <img
-            alt="Product screenshot"
-            src="assets/Fidebill_Facturacion.png"
-            width={2432}
-            height={1442}
-            className="w-[48rem] max-w-none rounded-xl ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
-          /> */}
-           {/* Imagenes a la derecha */}
+              <div className="flex justify-center">
+                <img
+                  alt="Product screenshot"
+                  src="assets/Fidebill-Sistemas.png"
+                  // className="w-full 7xl sm:w-[36rem] lg:w-[48rem]"
+                  className="w-[1000px] max-w-none  ml-40"
+                  //className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-4xl 2xl:max-w-6xl"
+ 
+
+                />
+              </div>
             <div>
-
-            {/* Imagen de fondo (Backoffice) 
-            <img
-              alt="Backoffice"
-              src="assets/Fidebill_Facturacion.png"
-              width={2432}
-              height={1442}
-              className="w-[48rem] max-w-none rounded-xl ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem]"
-            />*/}
-
-            {/* Imagen encima (App Cliente)
-            <img
-              alt="App Cliente"
-              src="assets/Fidebill_AppMovil.png"
-              width={300}
-              height={600}
-              className="absolute w-32 sm:w-40 md:w-48 left-8 bottom-6 rounded-2xl shadow-2xl border-4 border-white"
-            /> */}
-            </div>
           </div>
-  
+        </div>
       </div>
     </div>
   )
