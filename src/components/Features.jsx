@@ -22,47 +22,38 @@ const features = [
 
 export default function Features() {
   return (
-    <div className="overflow-hidden bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:pt-4 lg:pr-8">
-            <div className="lg:max-w-lg">
-              {/* <h2 className="text-base/7 font-semibold text-indigo-600">Fidelizá a tus clientes</h2> */}
-              <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-                Incrementá tus ventas
-              </p>
-              <p className="mt-6 text-lg/8 text-gray-600">
-                Al fidelizar a tus clientes de forma sencilla e intuitiva, vas a lograr que siempre vuelvan a tu negocio.
-              </p>
-              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
-                {features.map((feature) => (
-                  <div key={feature.name} className="relative pl-9">
-                    <dt className="inline font-semibold text-gray-900">
-                      <feature.icon aria-hidden="true" className="absolute top-1 left-1 size-5 text-indigo-600" />
-                      {feature.name}
-                    </dt>{' '}
-                    <dd className="inline">{feature.description}</dd>
-                  </div>
-                ))}
-              </dl>
+    <div className="overflow-hidden bg-white flex items-center flex-col xl:flex-row xl:mx-[5%]">
+      {/* Contenido de texto */}
+      <div className="max-w-lg p-4 flex-1">
+        <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+          Incrementá tus ventas
+        </p>
+        <p className="mt-6 text-lg/8 text-gray-600">
+          Al fidelizar a tus clientes de forma sencilla e intuitiva, vas a lograr que siempre vuelvan a tu negocio.
+        </p>
+        <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
+          {features.map((feature) => (
+            <div key={feature.name} className="relative pl-9">
+              <dt className="inline font-semibold text-gray-900">
+                <feature.icon aria-hidden="true" className="absolute top-1 left-1 size-5 text-indigo-600" />
+                {feature.name}
+              </dt>{' '}
+              <dd className="inline">{feature.description}</dd>
             </div>
-          </div>
-              <div className="flex justify-center">
-                <img
-                  alt="Product screenshot"
-                  src="assets/Fidebill-Sistemas.png"
-                  // className="w-full 7xl sm:w-[36rem] lg:w-[48rem]"
-                  className="w-[1000px] max-w-none  ml-40"
-                  //className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-4xl 2xl:max-w-6xl"
- 
+          ))}
+        </dl>
+      </div>
 
-                />
-              </div>
-            <div>
-          </div>
-        </div>
+      {/* Imagen */}
+      <div className="flex-1">
+        <img
+          alt="Product screenshot"
+          src="assets/Fidebill-Sistemas.png"
+          className="w-full object-cover"
+        />
       </div>
     </div>
+
   )
 }
 
