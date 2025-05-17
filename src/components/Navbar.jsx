@@ -33,14 +33,14 @@ export default function Navbar() {
                 : "assets/LogoFinalFidebill.png"
             }
             className="h-8 transition-all duration-300"
-            alt="FideBill"
+            alt="Fidebill"
           />
         </a>
 
         {/* Menú en pantallas grandes */}
         <ul className="hidden md:flex space-x-6">
           <li>
-            <a href="#" className="text-white hover:text-blue-300 transition">
+            <a href="" className="text-white hover:text-blue-300 transition">
               Inicio
             </a>
           </li>

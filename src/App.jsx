@@ -23,7 +23,7 @@ function App() {
       <Pricing></Pricing>
       <Stats></Stats>
       <Cta></Cta>
-      <Carousel></Carousel>
+      {/* <Carousel></Carousel> */}
       <WhatsAppButton></WhatsAppButton>
       <Card></Card>
       <Footer></Footer>
