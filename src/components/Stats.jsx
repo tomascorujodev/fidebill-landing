@@ -1,7 +1,7 @@
 const stats = [
-    { id: 1, name: 'Retención de clientes', value: '+95%' },
-    { id: 2, name: 'Empresas confían en nosotros', value: '+100' },
-    { id: 3, name: 'Usuarios nuevos por mes', value: '+100' },
+    { id: 1, name: 'Retención de clientes', value: '+92%' },
+    { id: 2, name: 'Empresas confían en nosotros', value: '+20' },
+    { id: 3, name: 'Aumentá tu ticket promedio', value: '+60%' },
   ]
   
   export default function Stats() {
