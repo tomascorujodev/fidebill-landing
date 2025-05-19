@@ -45,13 +45,13 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="#" className="text-white hover:text-blue-300 transition">
+            <a href="#feac" className="text-white hover:text-blue-300 transition">
               Servicios
             </a>
           </li>
           <li>
-            <a href="#" className="text-white hover:text-blue-300 transition">
-              Contacto
+            <a href="#pricing" className="text-white hover:text-blue-300 transition">
+              Precios
             </a>
           </li>
         </ul>

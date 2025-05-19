@@ -22,7 +22,7 @@ const features = [
 
 export default function Features() {
   return (
-    <div className="overflow-hidden bg-white flex items-center flex-col xl:flex-row xl:mx-[5%]">
+    <div id="feac" className="overflow-hidden bg-white flex items-center flex-col xl:flex-row xl:mx-[5%] pt-[80px] -mt-[80px]">
       {/* Contenido de texto */}
       <div className="max-w-lg p-4 flex-1">
         <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
