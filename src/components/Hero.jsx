@@ -13,9 +13,7 @@ export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="bg-gradient-to-r from-[#ffffff] to-[#ffffff] mb-40">
-      
-
+    <div id="hero" className="bg-gradient-to-r from-[#ffffff] to-[#ffffff] mb-40">
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"

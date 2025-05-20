@@ -25,7 +25,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <a href="/" className="flex items-center">
+        <a href="#hero" className="flex items-center">
           <img
             src={
               isScrolled
@@ -40,7 +40,7 @@ export default function Navbar() {
         {/* Menú en pantallas grandes */}
         <ul className="hidden md:flex space-x-6">
           <li>
-            <a href="" className="text-white hover:text-blue-300 transition">
+            <a href="#hero" className="text-white hover:text-blue-300 transition">
               Inicio
             </a>
           </li>
@@ -52,6 +52,11 @@ export default function Navbar() {
           <li>
             <a href="#pricing" className="text-white hover:text-blue-300 transition">
               Precios
+            </a>
+          </li>
+          <li>
+            <a href="#cta" className="text-white hover:text-blue-300 transition">
+              Contacto
             </a>
           </li>
         </ul>
@@ -75,7 +80,7 @@ export default function Navbar() {
           <ul className="flex flex-col items-center space-y-4 py-6">
             <li>
               <a
-                href="#"
+                href="#hero"
                 className="text-white text-lg"
                 onClick={() => setMenuOpen(false)}
               >
@@ -84,7 +89,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#"
+                href="#feac"
                 className="text-white text-lg"
                 onClick={() => setMenuOpen(false)}
               >
@@ -93,7 +98,16 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href="#"
+                href="#pricing"
+                className="text-white text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                Precios
+              </a>
+            </li>
+            <li>
+              <a
+                href="#cta"
                 className="text-white text-lg"
                 onClick={() => setMenuOpen(false)}
               >

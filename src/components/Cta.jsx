@@ -1,6 +1,6 @@
 export default function Cta() {
     return (
-      <div className="bg-white">
+      <div id="cta" className="bg-white">
         <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
             <svg
@@ -28,7 +28,7 @@ export default function Cta() {
                   href="https://wa.me/5492235484897"
                   className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
-                  Comenzá hoy🚀
+                  Contactanos🚀
                 </a>
               </div>
             </div>
