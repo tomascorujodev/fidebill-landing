@@ -20,7 +20,7 @@ function App() {
     <Navbar></Navbar>
       <Hero></Hero>
       <Features></Features>
-      <Pricing></Pricing>
+      {/* <Pricing></Pricing> */}
       <Stats></Stats>
       <Cta></Cta>
       {/* <Carousel></Carousel> */}
