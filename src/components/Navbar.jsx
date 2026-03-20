@@ -1,122 +1,158 @@
-import { useState, useEffect } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import PropTypes from 'prop-types'
+import { useEffect, useState } from 'react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import {
+  navigateTo,
+  navigateToHomeSection,
+  routes,
+} from '../utils/routes'
 
-export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+const landingLinks = [
+  { label: 'Inicio', sectionId: 'hero' },
+  { label: 'Beneficios', sectionId: 'feac' },
+  { label: 'Planes', sectionId: 'pricing' },
+  { label: 'Contacto', sectionId: 'cta' },
+]
 
-  // Detecta el scroll para cambiar el fondo del navbar y el logo
+export default function Navbar({ currentPath = routes.home }) {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const isRegistrationPage = currentPath === routes.companyRegistration
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+      setIsScrolled(window.scrollY > 24)
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [currentPath])
+
+  const baseLinkClass =
+    'text-sm font-medium transition hover:text-sky-300'
+
+  const navbarClass = isScrolled || isRegistrationPage
+    ? 'bg-slate-950/88 shadow-lg shadow-slate-950/10 backdrop-blur-xl'
+    : 'bg-slate-950/45 backdrop-blur-md'
+
+  const handleLogoClick = () => {
+    if (isRegistrationPage) {
+      navigateTo(routes.home)
+      return
+    }
+
+    navigateToHomeSection('hero')
+  }
+
+  const handleLandingClick = (sectionId) => {
+    navigateToHomeSection(sectionId)
+  }
+
+  const mobileLinks = isRegistrationPage
+    ? [{ label: 'Volver al inicio', action: () => navigateTo(routes.home) }]
+    : landingLinks.map((item) => ({
+        label: item.label,
+        action: () => handleLandingClick(item.sectionId),
+      }))
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-gray-900/80 backdrop-blur-md shadow-md"
-          : "bg-gray-900/30"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${navbarClass}`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#hero" className="flex items-center">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <button
+          type="button"
+          onClick={handleLogoClick}
+          className="flex items-center gap-3"
+        >
           <img
-            src={
-              isScrolled
-                ? "assets/LogoFinalFidebillBlanco.png"
-                : "assets/LogoFinalFidebill.png"
-            }
-            className="h-8 transition-all duration-300"
+            src="assets/LogoFinalFidebillBlanco.png"
+            className="h-9 w-auto"
             alt="Fidebill"
           />
-        </a>
+        </button>
 
-        {/* Menú en pantallas grandes */}
-        <ul className="hidden md:flex space-x-6">
-          <li>
-            <a href="#hero" className="text-white hover:text-blue-300 transition">
-              Inicio
-            </a>
-          </li>
-          <li>
-            <a href="#feac" className="text-white hover:text-blue-300 transition">
-              Servicios
-            </a>
-          </li>
-          <li>
-            <a href="#pricing" className="text-white hover:text-blue-300 transition">
-              Precios
-            </a>
-          </li>
-          <li>
-            <a href="#cta" className="text-white hover:text-blue-300 transition">
-              Contacto
-            </a>
-          </li>
-        </ul>
+        <div className="hidden items-center gap-7 md:flex">
+          {!isRegistrationPage &&
+            landingLinks.map((item) => (
+              <button
+                key={item.sectionId}
+                type="button"
+                onClick={() => handleLandingClick(item.sectionId)}
+                className={`${baseLinkClass} text-white`}
+              >
+                {item.label}
+              </button>
+            ))}
 
-        {/* Botón de menú en móviles */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? (
-            <XMarkIcon className="w-6 h-6" />
-          ) : (
-            <Bars3Icon className="w-6 h-6" />
+          {isRegistrationPage && (
+            <button
+              type="button"
+              onClick={() => navigateTo(routes.home)}
+              className={`${baseLinkClass} text-white`}
+            >
+              Volver al inicio
+            </button>
           )}
+
+          <button
+            type="button"
+            onClick={() => navigateTo(routes.companyRegistration)}
+            className="rounded-full bg-emerald-400 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-400/30 transition hover:bg-emerald-300"
+          >
+            Registrate gratis
+          </button>
+        </div>
+
+        <button
+          type="button"
+          className="text-white md:hidden"
+          onClick={() => setMenuOpen((currentValue) => !currentValue)}
+          aria-label={menuOpen ? 'Cerrar menu' : 'Abrir menu'}
+        >
+          {menuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
         </button>
       </div>
 
-      {/* Menú móvil */}
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-gray-900/90 backdrop-blur-md">
-          <ul className="flex flex-col items-center space-y-4 py-6">
-            <li>
-              <a
-                href="#hero"
-                className="text-white text-lg"
-                onClick={() => setMenuOpen(false)}
+        <div className="border-t border-white/10 bg-slate-950/96 md:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5">
+            {mobileLinks.map((item) => (
+              <button
+                key={item.label}
+                type="button"
+                onClick={() => {
+                  item.action()
+                  setMenuOpen(false)
+                }}
+                className="rounded-2xl px-4 py-3 text-left text-white transition hover:bg-white/5"
               >
-                Inicio
-              </a>
-            </li>
-            <li>
-              <a
-                href="#feac"
-                className="text-white text-lg"
-                onClick={() => setMenuOpen(false)}
-              >
-                Servicios
-              </a>
-            </li>
-            <li>
-              <a
-                href="#pricing"
-                className="text-white text-lg"
-                onClick={() => setMenuOpen(false)}
-              >
-                Precios
-              </a>
-            </li>
-            <li>
-              <a
-                href="#cta"
-                className="text-white text-lg"
-                onClick={() => setMenuOpen(false)}
-              >
-                Contacto
-              </a>
-            </li>
-          </ul>
+                {item.label}
+              </button>
+            ))}
+
+            <button
+              type="button"
+              onClick={() => {
+                navigateTo(routes.companyRegistration)
+                setMenuOpen(false)
+              }}
+              className="mt-2 rounded-2xl bg-emerald-400 px-4 py-3 text-left font-semibold text-slate-950"
+            >
+              Registrate gratis
+            </button>
+          </div>
         </div>
       )}
     </nav>
-  );
+  )
+}
+
+Navbar.propTypes = {
+  currentPath: PropTypes.string,
 }

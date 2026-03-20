@@ -4,12 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/dev.js",
-    "dev:client": "vite",
-    "dev:server": "node --watch server/index.js",
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "start": "node server/index.js",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,6 +14,7 @@
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.0.17",
     "lucide-react": "^0.485.0",
+    "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-tech-slider": "^1.8.21",

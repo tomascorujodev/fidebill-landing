@@ -1,26 +1,32 @@
-import Hero from './components/Hero'
-import Card from './components/Card'
-import Features from './components/Features'
-import Cta from './components/Cta'
-import WhatsAppButton from './components/WhatsAppButton'
-import Stats from './components/Stats'
-import Footer from './components/Footer'
-import Navbar from './components/Navbar'
+import { useEffect, useState } from 'react'
+import LandingPage from './pages/LandingPage'
+import CompanyRegistrationPage from './pages/CompanyRegistrationPage'
+import { normalizePathname, routes } from './utils/routes'
 
 function App() {
-
-  return (
-    <>
-    <Navbar></Navbar>
-      <Hero></Hero>
-      <Features></Features>
-      <Stats></Stats>
-      <Cta></Cta>
-      <WhatsAppButton></WhatsAppButton>
-      <Card></Card>
-      <Footer></Footer>
-    </>
+  const [currentPath, setCurrentPath] = useState(() =>
+    normalizePathname(window.location.pathname)
   )
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(normalizePathname(window.location.pathname))
+    }
+
+    window.addEventListener('popstate', handleLocationChange)
+    window.addEventListener('hashchange', handleLocationChange)
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange)
+      window.removeEventListener('hashchange', handleLocationChange)
+    }
+  }, [])
+
+  if (currentPath === routes.companyRegistration) {
+    return <CompanyRegistrationPage />
+  }
+
+  return <LandingPage />
 }
 
 export default App

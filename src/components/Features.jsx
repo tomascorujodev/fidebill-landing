@@ -2,40 +2,47 @@ import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/2
 
 const features = [
   {
-    name: 'Fidelizá a tus clientes.',
-    description: 'Hacé que tus clientes vuelvan con un sistema de puntos 100% configurable.',
+    name: 'Fideliza con puntos y beneficios.',
+    description:
+      'Hace que tus clientes vuelvan con una propuesta simple, medible y alineada a tu marca.',
     icon: ServerIcon,
   },
   {
-    name: 'Configurá tu aplicación.',
+    name: 'Personaliza la experiencia.',
     description:
-      'Obtené una aplicación para tus clientes, personalizable con tu logo, colores y beneficios propios.',
+      'Muestra tu negocio con identidad propia y una experiencia pensada para tus clientes.',
     icon: CloudArrowUpIcon,
   },
   {
-    name: 'Creá tu propio catálogo.',
-    description: 'Configurá tu propio catálogo de productos y servicios canjeables por puntos.',
+    name: 'Gestiona catalogo y canjes.',
+    description:
+      'Organiza productos, servicios y beneficios canjeables desde una base preparada para crecer.',
     icon: LockClosedIcon,
   },
-
 ]
 
 export default function Features() {
   return (
-    <div id="feac" className="overflow-hidden bg-white flex items-center flex-col xl:flex-row xl:mx-[5%] pt-[80px] -mt-[80px]">
-      {/* Contenido de texto */}
-      <div className="max-w-lg p-4 flex-1">
+    <div
+      id="feac"
+      className="section-shell -mt-[80px] flex scroll-mt-28 flex-col items-center overflow-hidden rounded-[2rem] bg-white/90 pt-[80px] xl:mx-[5%] xl:flex-row"
+    >
+      <div className="max-w-lg flex-1 p-4">
         <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-          Incrementá tus ventas
+          Convierte clientes ocasionales en clientes frecuentes
         </p>
         <p className="mt-6 text-lg/8 text-gray-600">
-          Al fidelizar a tus clientes de forma sencilla e intuitiva, vas a lograr que siempre vuelvan a tu negocio.
+          Fidebill te ayuda a vender mas con una experiencia de fidelizacion simple,
+          profesional y facil de implementar para cualquier empresa.
         </p>
         <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
           {features.map((feature) => (
             <div key={feature.name} className="relative pl-9">
               <dt className="inline font-semibold text-gray-900">
-                <feature.icon aria-hidden="true" className="absolute top-1 left-1 size-5 text-indigo-600" />
+                <feature.icon
+                  aria-hidden="true"
+                  className="absolute left-1 top-1 size-5 text-indigo-600"
+                />
                 {feature.name}
               </dt>{' '}
               <dd className="inline">{feature.description}</dd>
@@ -44,16 +51,13 @@ export default function Features() {
         </dl>
       </div>
 
-      {/* Imagen */}
       <div className="flex-1">
         <img
-          alt="Product screenshot"
+          alt="Vista de la plataforma Fidebill"
           src="assets/Fidebill-Sistemas.png"
           className="w-full object-cover"
         />
       </div>
     </div>
-
   )
 }
-
